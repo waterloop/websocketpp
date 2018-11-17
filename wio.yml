@@ -125,10 +125,3 @@ libraries:
     variables:
       $darwin(OPENSSL_ROOT_DIR: /usr/local/opt/openssl)
     
-  Librt:
-    cmake_package: true
-    path: $(PROJECT_PATH)/cmake
-    required: true
-    os_supported: 
-    - windows
-    - linux
