@@ -1,0 +1,134 @@
+type: pkg
+
+project:
+  name: websocketpp
+  version: 1.0.0
+  keywords:
+  - wio
+  - pkg
+  - websockets
+  compile_options:
+    header_only: true
+    wio_version: 0.6.2
+    definitions:
+      ingest:
+      - $linux(-DNDEBUG -Wall -Wcast-align -Wno-padded)
+      - $windows(-DNDEBUG -Wall -Wcast-align -Wno-padded)
+      - $darwin(-DNDEBUG -Wall)
+    linker_flags:
+    - $darwin(-pthread)
+    - $linux(-pthread)
+    - $windows(-pthread)
+
+targets:
+  associative_storage:
+    src: examples/associative_storage
+    platform: native
+  broadcast_server:
+    src: examples/broadcast_server
+    platform: native
+  debug_client:
+    src: examples/debug_client
+    platform: native
+  debug_server:
+    src: examples/debug_server
+    platform: native
+  dev:
+    src: examples/dev
+    platform: native
+  echo_server:
+    src: examples/echo_server
+    platform: native
+  echo_client:
+    src: examples/echo_client
+    platform: native
+  echo_server_both:
+    src: examples/echo_server_both
+    platform: native
+  echo_server_tls:
+    src: examples/echo_server_tls
+    platform: native
+  enriched_storage:
+    src: examples/enriched_storage
+    platform: native
+  external_io_service:
+    src: examples/external_io_service
+    platform: native
+  handler_switch:
+    src: examples/handler_switch
+    platform: native
+  iostream_server:
+    src: examples/iostream_server
+    platform: native
+  print_client:
+    src: examples/print_client
+    platform: native
+  print_client_tls:
+    src: examples/print_client_tls
+    platform: native
+  print_server:
+    src: examples/print_server
+    platform: native
+  scratch_client:
+    src: examples/scratch_client
+    platform: native
+  scratch_server:
+    src: examples/scratch_server
+    platform: native
+  simple_broadcast_server:
+    src: examples/simple_broadcast_server
+    platform: native
+  sip_client:
+    src: examples/sip_client
+    platform: native
+  subprotocol_server:
+    src: examples/subprotocol_server
+    platform: native
+  telemetry_client:
+    src: examples/telemetry_client
+    platform: native
+  telemetry_server:
+    src: examples/telemetry_server
+    platform: native
+  testee_client:
+    src: examples/testee_client
+    platform: native
+  testee_server:
+    src: examples/testee_server
+    platform: native
+  utility_client:
+    src: examples/utility_client
+    platform: native
+
+libraries:
+  Threads:
+    cmake_package: true
+    use_imported_targets: true
+    required: true
+
+  Boost:
+    cmake_package: true
+    use_imported_targets: true
+    required: true
+    required_components:
+    - system
+    - thread
+    - timer
+
+  OpenSSL:
+    cmake_package: true
+    use_imported_targets: false
+    required: true
+    required_components: 
+    - SSL
+    - Crypto
+    variables:
+      $darwin(OPENSSL_ROOT_DIR: /usr/local/opt/openssl)
+    
+  Librt:
+    cmake_package: true
+    path: $(PROJECT_PATH)/cmake
+    required: true
+    os_supported: 
+    - windows
+    - linux

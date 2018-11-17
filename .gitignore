@@ -92,3 +92,6 @@ Makefile
 bin
 
 Testing/Temporary/CTestCostData.txt
+
+# wio
+.wio/
