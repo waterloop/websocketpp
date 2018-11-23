@@ -15,6 +15,7 @@ project:
       - $linux(-DNDEBUG -Wall -Wcast-align -Wno-padded)
       - $windows(-DNDEBUG -Wall -Wcast-align -Wno-padded)
       - $darwin(-DNDEBUG -Wall)
+      - -DBOOST_ASIO_HAS_STD_CHRONO
     linker_flags:
     - $darwin(-pthread)
     - $linux(-pthread)
