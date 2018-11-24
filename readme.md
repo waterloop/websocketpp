@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/waterloop/websocketpp.svg?branch=master)](https://travis-ci.org/waterloop/websocketpp)
+
 WebSocket++ (0.8.1)
 ==========================
 
@@ -7,6 +9,13 @@ C++ programs. It uses interchangeable network transport modules including one
 based on raw char buffers, one based on C++ iostreams, and one based on Asio 
 (either via Boost or standalone). End users can write additional transport
 policies to support other networking or event libraries as needed.
+
+This is a wio package and can be installed using:
+```
+wio install websocketpp
+```
+
+You can read more about the project below:
 
 Major Features
 ==============
